@@ -9,5 +9,5 @@ setup(
     author_email='rohit.laddha@paysense.in',
     packages=['crema'],
     zip_safe=False,
-    install_requires=['kafka-python==1.4.7', 'uhashring==1.1']
+    install_requires=['kafka-python==2.0.0', 'uhashring==1.1']
 )
