@@ -147,7 +147,7 @@ class EventPartition(Enum):
     I_CLEVER_TAP = 64
     I_HADES = 8
     I_LEAD_SQUARED = 32
-    I_TRACKWIZZ = 32
+    I_TRACKWIZZ = 16
 
     # TELEMETRY
     RAW_SMS = 8
