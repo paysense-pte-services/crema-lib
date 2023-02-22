@@ -1,2 +1,2 @@
-kafka-python==2.0.0
+kafka-python==2.0.2
 uhashring==1.1
