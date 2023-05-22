@@ -62,6 +62,9 @@ class EventType(Enum):
     LOAN_ALLOCATION = "LOAN_ALLOCATION"
     PL_COMMUNICATION = "PL_COMMUNICATION"
 
+    # Bureau
+    BUREAU_DATA = "BUREAU_DATA"
+
     # INTERNAL TOPICS
     # All internal topics start with prefix I_
     I_LOAN_APPLICATION_INDEX = "I_LOAN_APPLICATION_INDEX"
@@ -71,6 +74,7 @@ class EventType(Enum):
     I_HADES = "I_HADES"
     I_LEAD_SQUARED = "I_LEAD_SQUARED"
     I_TRACKWIZZ = "I_TRACKWIZZ"
+    I_BUREAU_DATA = "I_BUREAU_DATA"
 
     # TELEMETRY
     RAW_SMS = "RAW_SMS"
@@ -141,6 +145,9 @@ class EventPartition(Enum):
     LOAN_ALLOCATION = 8
     PL_COMMUNICATION = 16
 
+    # Bureau
+    BUREAU_DATA = 4
+
     # INTERNAL TOPICS
     I_LOAN_APPLICATION_INDEX = 64
     I_LEAD_INDEX = 64
@@ -149,6 +156,7 @@ class EventPartition(Enum):
     I_HADES = 8
     I_LEAD_SQUARED = 32
     I_TRACKWIZZ = 8
+    I_BUREAU_DATA = 4
 
     # TELEMETRY
     RAW_SMS = 8
