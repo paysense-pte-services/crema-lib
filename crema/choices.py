@@ -146,7 +146,7 @@ class EventPartition(Enum):
     PL_COMMUNICATION = 16
 
     # Bureau
-    BUREAU_DATA = 4
+    BUREAU_DATA = 8
 
     # INTERNAL TOPICS
     I_LOAN_APPLICATION_INDEX = 64
@@ -156,7 +156,7 @@ class EventPartition(Enum):
     I_HADES = 8
     I_LEAD_SQUARED = 32
     I_TRACKWIZZ = 8
-    I_BUREAU_DATA = 4
+    I_BUREAU_DATA = 8
 
     # TELEMETRY
     RAW_SMS = 8
