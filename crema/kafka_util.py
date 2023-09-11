@@ -4,8 +4,8 @@ import logging
 import time
 import uuid
 
-from kafka3 import KafkaProducer
-from kafka3.errors import KafkaError
+from kafka import KafkaProducer
+from kafka.errors import KafkaError
 
 from crema.decorators import singleton
 from .config import ENABLED, KAFKA_BOOTSTRAP_SERVERS
