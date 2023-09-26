@@ -120,7 +120,7 @@ class EventPartition(Enum):
     # AMS
     ASSESSMENT = 16
     # topic for master user assessment data
-    USER_ASSESSMENT = 16
+    USER_ASSESSMENT = 8
     PRODUCT_ELIGIBILITY = 8
     BUREAU_ADDRESS = 8
     SMS = 8
