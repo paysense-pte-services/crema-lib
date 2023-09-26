@@ -32,6 +32,8 @@ class EventType(Enum):
 
     # AMS
     ASSESSMENT = "ASSESSMENT"
+    # topic for master user assessment data
+    USER_ASSESSMENT = "USER_ASSESSMENT"
     PRODUCT_ELIGIBILITY = "PRODUCT_ELIGIBILITY"
     BUREAU_ADDRESS = "BUREAU_ADDRESS"
     SMS = "SMS"
@@ -117,6 +119,8 @@ class EventPartition(Enum):
 
     # AMS
     ASSESSMENT = 16
+    # topic for master user assessment data
+    USER_ASSESSMENT = 16
     PRODUCT_ELIGIBILITY = 8
     BUREAU_ADDRESS = 8
     SMS = 8
