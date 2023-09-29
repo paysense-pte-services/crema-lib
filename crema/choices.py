@@ -30,10 +30,11 @@ class EventType(Enum):
     REFERENCE_META = "REFERENCE_META"
     USER_REGISTRATION = "USER_REGISTRATION"
 
+    # Assessment Engine
+    AE_ASSESSMENT = "AE_ASSESSMENT"
+
     # AMS
     ASSESSMENT = "ASSESSMENT"
-    # topic for master user assessment data
-    USER_ASSESSMENT = "USER_ASSESSMENT"
     PRODUCT_ELIGIBILITY = "PRODUCT_ELIGIBILITY"
     BUREAU_ADDRESS = "BUREAU_ADDRESS"
     SMS = "SMS"
@@ -117,10 +118,11 @@ class EventPartition(Enum):
     REFERENCE_META = 4
     USER_REGISTRATION = 4
 
+    # Assessment Engine
+    AE_ASSESSMENT = 8
+
     # AMS
     ASSESSMENT = 16
-    # topic for master user assessment data
-    USER_ASSESSMENT = 8
     PRODUCT_ELIGIBILITY = 8
     BUREAU_ADDRESS = 8
     SMS = 8
