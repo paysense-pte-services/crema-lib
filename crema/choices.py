@@ -30,6 +30,9 @@ class EventType(Enum):
     REFERENCE_META = "REFERENCE_META"
     USER_REGISTRATION = "USER_REGISTRATION"
 
+    # Assessment Engine
+    AE_ASSESSMENT = "AE_ASSESSMENT"
+
     # AMS
     ASSESSMENT = "ASSESSMENT"
     PRODUCT_ELIGIBILITY = "PRODUCT_ELIGIBILITY"
@@ -114,6 +117,9 @@ class EventPartition(Enum):
     PSCORE_PRODUCT_ELIGIBILITY = 4
     REFERENCE_META = 4
     USER_REGISTRATION = 4
+
+    # Assessment Engine
+    AE_ASSESSMENT = 8
 
     # AMS
     ASSESSMENT = 16
