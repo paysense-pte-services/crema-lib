@@ -66,6 +66,7 @@ class EventType(Enum):
     # Hades
     LOAN_ALLOCATION = "LOAN_ALLOCATION"
     PL_COMMUNICATION = "PL_COMMUNICATION"
+    SEND_COLLECTION_MESSAGES = "SEND_COLLECTION_MESSAGES"
 
     # Bureau
     BUREAU_DATA = "BUREAU_DATA"
@@ -154,6 +155,7 @@ class EventPartition(Enum):
     # Hades
     LOAN_ALLOCATION = 8
     PL_COMMUNICATION = 16
+    SEND_COLLECTION_MESSAGES = 8
 
     # Bureau
     BUREAU_DATA = 8
