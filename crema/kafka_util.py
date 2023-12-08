@@ -34,7 +34,6 @@ class KafkaUtil:
         if self._kafka_producer:
             self._kafka_producer.flush()
 
-
     @property
     def producer(self):
         # initialise kafkaProducer only when its about to send events. It avoids creating unnecessary connection
@@ -102,7 +101,7 @@ class KafkaUtil:
         )
 
         start_time = time.time()
-        self.producer.send(event_type, data, partition=partition,).add_callback(
+        self.producer.send(event_type, data, partition=partition, ).add_callback(
             self._success_callback, data
         ).add_errback(self._error_callback, data, partition)
         LOGGER.debug(
@@ -124,7 +123,7 @@ class KafkaUtil:
             master_user_id = data["meta_data"]["user_id"]
             partition = PartitionHashing.get_partition(master_user_id, event_type)
 
-        future = self.producer.send(event_type, data, partition=partition,)
+        future = self.producer.send(event_type, data, partition=partition, )
         try:
             record_metadata = future.get(timeout=10)
             # not using f"" style as python 3.4 is used at AMS and doesn't support this style
