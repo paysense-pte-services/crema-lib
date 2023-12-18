@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='crema',
-    version='2.35',
+    version='2.36',
     description='Kafka Library',
     url='https://github.com/paysense/crema',
     author='Rohit Laddha',

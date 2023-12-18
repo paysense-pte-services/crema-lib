@@ -30,6 +30,7 @@ class EventType(Enum):
     REFERENCE_META = "REFERENCE_META"
     USER_REGISTRATION = "USER_REGISTRATION"
     USER_UPDATION = "USER_UPDATION"
+    MOBILE_UPDATION = "MOBILE_UPDATION"
 
     # Assessment Engine
     AE_ASSESSMENT = "AE_ASSESSMENT"
@@ -121,6 +122,7 @@ class EventPartition(Enum):
     REFERENCE_META = 4
     USER_REGISTRATION = 4
     USER_UPDATION = 4
+    MOBILE_UPDATION = 4
 
     # Assessment Engine
     AE_ASSESSMENT = 8
