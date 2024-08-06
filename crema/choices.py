@@ -86,6 +86,7 @@ class EventType(Enum):
     I_TRACKWIZZ = "I_TRACKWIZZ"
     I_BUREAU_DATA = "I_BUREAU_DATA"
     I_LEAD_SQUARED_SALES_OPS = "I_LEAD_SQUARED_SALES_OPS"
+    I_COLLEKTO = "I_COLLEKTO"
 
     # TELEMETRY
     RAW_SMS = "RAW_SMS"
@@ -179,6 +180,7 @@ class EventPartition(Enum):
     I_TRACKWIZZ = 8
     I_BUREAU_DATA = 8
     I_LEAD_SQUARED_SALES_OPS = 32
+    I_COLLEKTO = 4
 
     # TELEMETRY
     RAW_SMS = 8
