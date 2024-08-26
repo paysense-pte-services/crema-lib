@@ -88,27 +88,25 @@ class KafkaUtil:
         uid = str(uuid.uuid4())
         start_time = time.time()
         event_type = data["meta_data"]["event_type"]
-        if event_type == 'SMS':
+        if event_type == "SMS":
             device_id = data["meta_data"]["device_id"]
             partition = PartitionHashing.get_partition(device_id, event_type)
         else:
             master_user_id = data["meta_data"]["user_id"]
             partition = PartitionHashing.get_partition(master_user_id, event_type)
         LOGGER.debug(
-            "time take to get partition for uid:{uid} {t}".format(
-                uid=uid, t=(time.time() - start_time)
-            )
+            "time take to get partition for uid:{uid} {t}".format(uid=uid, t=(time.time() - start_time))
         )
 
         start_time = time.time()
-        self.producer.send(event_type, data, partition=partition, ).add_callback(
+        self.producer.send(
+            event_type,
+            data,
+            partition=partition,
+        ).add_callback(
             self._success_callback, data
         ).add_errback(self._error_callback, data, partition)
-        LOGGER.debug(
-            "time take to publish for uid:{uid} {t}".format(
-                uid=uid, t=(time.time() - start_time)
-            )
-        )
+        LOGGER.debug("time take to publish for uid:{uid} {t}".format(uid=uid, t=(time.time() - start_time)))
 
     def push(self, data):
         if ENABLED is False:
@@ -116,14 +114,18 @@ class KafkaUtil:
             return
 
         event_type = data["meta_data"]["event_type"]
-        if event_type == 'SMS':
+        if event_type == "SMS":
             device_id = data["meta_data"]["device_id"]
             partition = PartitionHashing.get_partition(device_id, event_type)
         else:
             master_user_id = data["meta_data"]["user_id"]
             partition = PartitionHashing.get_partition(master_user_id, event_type)
 
-        future = self.producer.send(event_type, data, partition=partition, )
+        future = self.producer.send(
+            event_type,
+            data,
+            partition=partition,
+        )
         try:
             record_metadata = future.get(timeout=10)
             # not using f"" style as python 3.4 is used at AMS and doesn't support this style
