@@ -99,11 +99,7 @@ class KafkaUtil:
         )
 
         start_time = time.time()
-        self.producer.send(
-            event_type,
-            data,
-            partition=partition,
-        ).add_callback(
+        self.producer.send(event_type, data, partition=partition,).add_callback(
             self._success_callback, data
         ).add_errback(self._error_callback, data, partition)
         LOGGER.debug("time take to publish for uid:{uid} {t}".format(uid=uid, t=(time.time() - start_time)))
