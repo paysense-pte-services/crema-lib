@@ -50,6 +50,10 @@ jobs:
         with:
           args: >
             -Dsonar.internal.analysis.dbd=false
-            -Dsonar.python.coverage.reportPaths=src/coverage.xml
-            -Dsonar.exclusions=**/tests/**,**/migrations/**,**/management/**,**/*.html
             -Dsonar.python.version=3.9
+      - name: Sonar quality gate
+        id: sonar-quality-gate
+        uses: sonarsource/sonarqube-quality-gate-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
