@@ -9,9 +9,7 @@ class PartitionHashing:
     def get_hash_ring(cls, event_type):
         if event_type in cls._hash_rings_dict:
             return cls._hash_rings_dict[event_type]
-        cls._hash_rings_dict[event_type] = HashRing(
-            nodes=list(range(EventPartition[event_type].value))
-        )
+        cls._hash_rings_dict[event_type] = HashRing(nodes=list(range(EventPartition[event_type].value)))
         return cls._hash_rings_dict[event_type]
 
     @classmethod

@@ -1,0 +1,59 @@
+name: Continuous Integration checks
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+concurrency:
+   group: ${{ github.workflow }}-${{ github.ref }}
+   cancel-in-progress: true
+
+jobs:
+  initial_checks:
+    name: Black formatting & Secrets Scan
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9.0'
+      - name: Run scan
+        id: trivy-scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'repo'
+          scan-ref: '.'
+          format: 'table'
+          exit-code: 1
+          ignore-unfixed: true
+          vuln-type: 'library,os'
+          severity: 'CRITICAL,HIGH,MEDIUM'
+          scanners: secret
+  sonarqube:
+    name: Sonarqube scan
+    runs-on: ubuntu-20.04
+    needs: [initial_checks]
+    steps:
+      - name: Setup checkout
+        uses: actions/checkout@v4
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9.0'
+      - name: sonarqube scan
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          args: >
+            -Dsonar.internal.analysis.dbd=false
+            -Dsonar.python.version=3.9
+      - name: Sonar quality gate
+        id: sonar-quality-gate
+        uses: sonarsource/sonarqube-quality-gate-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
