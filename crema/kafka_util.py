@@ -91,6 +91,9 @@ class KafkaUtil:
         if event_type == "SMS":
             device_id = data["meta_data"]["device_id"]
             partition = PartitionHashing.get_partition(device_id, event_type)
+        elif event_type == "I_HADES_COMMUNICATION_EVENTS":
+            event_id = data["meta_data"]["event_id"]
+            partition = PartitionHashing.get_partition(event_id, event_type)
         else:
             master_user_id = data["meta_data"]["user_id"]
             partition = PartitionHashing.get_partition(master_user_id, event_type)
@@ -113,6 +116,9 @@ class KafkaUtil:
         if event_type == "SMS":
             device_id = data["meta_data"]["device_id"]
             partition = PartitionHashing.get_partition(device_id, event_type)
+        elif event_type == "I_HADES_COMMUNICATION_EVENTS":
+            event_id = data["meta_data"]["event_id"]
+            partition = PartitionHashing.get_partition(event_id, event_type)
         else:
             master_user_id = data["meta_data"]["user_id"]
             partition = PartitionHashing.get_partition(master_user_id, event_type)
